@@ -750,6 +750,39 @@ namespace GeneralProblems
         
         }
 
+        public void StockBuySell(int [] A)
+        {
+            int Alength = A.Length ;                  
+            int []buy = new int[10];            
+            int[] sell = new int[10];                     
+            int count = 0;
+            int j = 0;
+            while (j < Alength-1)
+            {
+                while ((j < Alength-1) && (A[j + 1] <= A[j]))
+                {
+                    j++;
+
+                }
+                if (j == Alength - 1)
+                    break;
+                              
+                buy[count] = A[j++];
+
+                while((j < Alength-1) && (A[j+1] >= A[j]))
+                {
+                    j++;
+                }
+               
+                sell[count] = A[j];
+                count++;
+
+            }
+
+           
+        }
+       
+
         static void Main(string[] args)
         {
 
@@ -984,10 +1017,16 @@ namespace GeneralProblems
             int l1 = 0;
             int l2 =0;
 
-            int max = p.lcsDynamic(str1.ToCharArray(), str2.ToCharArray(), l1, l2);
+           // int max = p.lcsDynamic(str1.ToCharArray(), str2.ToCharArray(), l1, l2);
             Console.ReadLine();
 
+            // The cost of a stock on each day is given in an array, find the max profit that you can make by buying and selling in those days.
+            //For example, if the given array is {100, 180, 260, 310, 40, 535, 695}, the maximum profit can earned by buying on day 0, selling on day 3. 
+            //Again buy on day 4 and sell on day 6. If the given array of prices is sorted in decreasing order, then profit cannot be earned at all.
 
+            int [] A = new int[] {100,180,260,310,40,535,695};
+            // int[] A = new int[] { 48,31,61,38,51,70,10 };
+            p.StockBuySell(A);
             
         }
 
