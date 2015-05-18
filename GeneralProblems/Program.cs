@@ -783,6 +783,69 @@ namespace GeneralProblems
         }
        
 
+        public void StockSpan(int [] StockPrice)
+        {
+
+            Stack<int> StockSpan = new Stack<int>();
+            int [] Index = new int[StockPrice.Length];
+
+            for (int i = 0; i < StockPrice.Length;  i++ )
+            {
+                if (StockSpan.Count == 0)
+                {
+                    StockSpan.Push(StockPrice[i]);
+                    Index[i] = i + 1;
+
+                }
+                else 
+                {
+                    int peek = StockSpan.Peek();
+                    int count = 0;
+
+                    if (StockPrice[i] > peek)
+                    {
+                        count = i;
+                        while(StockPrice[i] > peek && StockSpan.Count !=0)
+                        {
+                            StockSpan.Pop();
+                            if(StockSpan.Count !=0)
+                            peek = StockSpan.Peek();
+                            count--;
+                            
+                        }
+                        if (StockSpan.Count == 0)
+                        {
+                            StockSpan.Push(StockPrice[i]);
+                            Index[i] = i + 1;
+                        }
+                        else
+                        {
+                            StockSpan.Push(StockPrice[i]);
+                            //while (count != 0)
+                            //{
+                                
+                               count--;
+                            //}
+                            Index[i] = i - count;
+                        }
+                        
+                    }
+                    else if(StockPrice[i] < peek)
+                    {
+                        StockSpan.Push(StockPrice[i]);
+                        int temp = i;
+                        temp--;
+                        Index[i] = i - temp;
+                    }
+                    
+                }
+
+            }
+
+
+
+        }
+
         static void Main(string[] args)
         {
 
@@ -1020,13 +1083,19 @@ namespace GeneralProblems
            // int max = p.lcsDynamic(str1.ToCharArray(), str2.ToCharArray(), l1, l2);
             Console.ReadLine();
 
-            // The cost of a stock on each day is given in an array, find the max profit that you can make by buying and selling in those days.
+            //20. The cost of a stock on each day is given in an array, find the max profit that you can make by buying and selling in those days.
             //For example, if the given array is {100, 180, 260, 310, 40, 535, 695}, the maximum profit can earned by buying on day 0, selling on day 3. 
             //Again buy on day 4 and sell on day 6. If the given array of prices is sorted in decreasing order, then profit cannot be earned at all.
 
             int [] A = new int[] {100,180,260,310,40,535,695};
             // int[] A = new int[] { 48,31,61,38,51,70,10 };
             p.StockBuySell(A);
+
+            //21. Stick Span problem 
+            // Given a list of stock prices , we need to find span of a day (span = Number of consecutive days to prior day , when stick price is less than current day)
+
+            int[] StockPrice = new int[] {100,65,70,110, 80,90, 120 };
+            p.StockSpan(StockPrice);
             
         }
 
