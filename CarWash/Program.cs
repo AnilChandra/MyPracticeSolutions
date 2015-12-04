@@ -12,7 +12,7 @@ namespace CarWash
         static void Main(string[] args)
         {
 
-           
+           // Initializing new car
             Car c = new Car();
             c.DeepWash = 4;
             c.WaterWash = 0;
