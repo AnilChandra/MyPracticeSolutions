@@ -16,6 +16,10 @@ namespace BinarySearch
             int End = ArrayLength - 1;
             while(Start <= End)
             {
+                int tada = ((7 - 1) / 8 + 1);
+                int tada1= ((12 - 1) / 8 + 1);
+                int tada2 = ((17 - 1) / 8 + 1);
+
                 int middle = (Start + End) / 2;
                 if(SearchString == Myarray[middle])
                 {
@@ -115,25 +119,25 @@ namespace BinarySearch
 
             Program p = new Program();
             int[] Myarray = {11,12,12,12,12,15,18,19,20,21,22};
-            //int SearchString = 13;
+            int SearchString = 13;
 
             // 0. Search a string in sorted array
-           //int index = p.BSearch(Myarray, SearchString, Myarray.Length);
-           //Console.WriteLine(index);
-           //Console.ReadLine();
+            int index = p.BSearch(Myarray, SearchString, Myarray.Length);
+            Console.WriteLine(index);
+            Console.ReadLine();
 
 
            // 1. Occurences of number in an array
-            int SearchString = 12;
-            Boolean FindLast = true;
-            int LastIndex = p.FindOccurence(Myarray, SearchString, Myarray.Length, FindLast);
+            //int SearchString = 12;
+            //Boolean FindLast = true;
+            //int LastIndex = p.FindOccurence(Myarray, SearchString, Myarray.Length, FindLast);
 
-            FindLast = false;
-            int FirstIndex = p.FindOccurence(Myarray, SearchString, Myarray.Length, FindLast);
+            //FindLast = false;
+            //int FirstIndex = p.FindOccurence(Myarray, SearchString, Myarray.Length, FindLast);
 
-            int NumberOfOccerances = (LastIndex - FirstIndex) + 1; // occurences of a number in sorted array with dupilcates using Bindary search
-            Console.WriteLine("Number of Occurences : " + NumberOfOccerances);
-            Console.ReadLine();
+            //int NumberOfOccerances = (LastIndex - FirstIndex) + 1; // occurences of a number in sorted array with dupilcates using Bindary search
+            //Console.WriteLine("Number of Occurences : " + NumberOfOccerances);
+            //Console.ReadLine();
 
             // 2. Hom many times is a sorted array rotated
             //int NoOfRotations = p.FindRotationCount(Myarray, Myarray.Length);
