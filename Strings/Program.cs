@@ -183,15 +183,17 @@ namespace Strings
             Program p = new Program();
             //Console.WriteLine(p.RecFib(num));
             //int[] MyArray = {7,2,1,6,8,5,3,4};
+            int[] MyArray = { 1,2,4,6,3,7,8};
+            p.GetMissingNumber(MyArray);
 
             ////p.MergeSort(MyArray);
             //p.QuickSort(MyArray, 0, 7 );
             //p.findprime(num);
-           // p.fibnocci(num);
+            // p.fibnocci(num);
 
             //Console.WriteLine(p.fibnocci(num));
             //Console.ReadLine();
-            
+
 
             // strip white places in a string
 
@@ -215,7 +217,7 @@ namespace Strings
            // p.annagram();
 
            // p.removeshitespace(mystring);
-            p.removeduplicate(mystring);
+            //p.removeduplicate(mystring);
            // p.RemoveDuplicateCharsFast(mystring);
             //string value1= RemoveDuplicateCharsFast(mystring);
             //Console.WriteLine(value1);
@@ -1164,6 +1166,20 @@ namespace Strings
 
             }
             return mylist;
+        }
+
+        public void GetMissingNumber(int []Myarray)
+        {
+            int lengthOfArray = Myarray.Length + 1;
+            int sumOfNumbers = (lengthOfArray * (lengthOfArray + 1)) / 2;
+           // int missingNumber = 0;
+            for (int i =0; i < Myarray.Length; i++)
+            {
+                sumOfNumbers = sumOfNumbers - Myarray[i];
+            }
+            Console.WriteLine("Missing Number is : " + sumOfNumbers);
+            Console.ReadLine();
+           
         }
     }
 }

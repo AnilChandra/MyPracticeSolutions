@@ -76,7 +76,7 @@ namespace DP
             return matrix[A-1, B-1];
             
         }
-
+        // 3,4 , -1, 0, 6 , 2 ,3 : -1 , 0 , 2, 3 ( length is 4)
         public int LongIncrSubSeq(int [] A)
         {
            int [] T = new int[A.Length];
@@ -112,7 +112,7 @@ namespace DP
            return max;
 
         }
-
+        // 4,6,1,3,8,4,6 : 4,6,8
         public void MaxIncSumSubSeq(int [] A)
         {
         
