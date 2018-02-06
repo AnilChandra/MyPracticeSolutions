@@ -118,7 +118,12 @@ namespace AlgorithmsMadeEasy
         {
             Tries t = new Tries();
             t.CreateRoot();
-            t.Add("abc".ToCharArray());
+            t.Add("abccd".ToCharArray());
+            t.Add("abgl".ToCharArray());
+            t.Add("cdf".ToCharArray());
+            t.Add("abcd".ToCharArray());
+            t.Add("lmn".ToCharArray());
+            bool findPrefix2 = t.FindPrefix("lo".ToCharArray());
         }
     }
 
