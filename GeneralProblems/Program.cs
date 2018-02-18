@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections;
 
 namespace GeneralProblems
 {
@@ -846,6 +845,47 @@ namespace GeneralProblems
 
         }
 
+        public int Find_First_Recurring_Character(string str)
+        {
+            char[] givenString = str.ToCharArray();
+            Hashtable hashtable = new Hashtable();
+
+            for (int i = 0; i < givenString.Length; i++)
+            {
+                
+                if (hashtable.ContainsKey(givenString[i]))
+                {
+                    Console.WriteLine("First Repeat occurence is : " + givenString[i]);
+                    return 0;
+                }
+                hashtable.Add(givenString[i], i);
+            }
+            return 1;
+        }
+
+        public int [] AddOneToGivenArray(int [] MyArray)
+        {
+            int carryOver =1;
+            int[] result = new int[MyArray.Length];
+            for (int i = MyArray.Length -1; i >= 0; i--)
+            {
+                int total = MyArray[i] + carryOver;
+                if (total == 10)
+                {
+                    carryOver = 1;
+                }
+                else { carryOver = 0;}
+                result[i] = total % 10;
+
+            }
+            if (carryOver == 1)
+            {
+                result = new int[MyArray.Length + 1];
+                result[0] = 1;
+            }
+                return result;
+        }
+
         static void Main(string[] args)
         {
 
@@ -875,7 +915,7 @@ namespace GeneralProblems
             //p.MaxSumSubArray(Array);
 
 
-            LinkedList<Vertex> index = new LinkedList<Vertex>();
+            //LinkedList<Vertex> index = new LinkedList<Vertex>();
 
             //Vertex v1 = new Vertex();
             //v1.data = 10;
@@ -900,51 +940,51 @@ namespace GeneralProblems
 
             //4. Building tree and finding height and check if it is balanced
 
-            BSTree node = new BSTree();
-            node.data = 15;
-            p.AuxilaryHead(node);
+            //BSTree node = new BSTree();
+            //node.data = 15;
+            //p.AuxilaryHead(node);
            
 
-            BSTree node1 = new BSTree();
-            node1.data = 10;
-            p.AuxilaryHead(node1);
+            //BSTree node1 = new BSTree();
+            //node1.data = 10;
+            //p.AuxilaryHead(node1);
 
-            BSTree node2 = new BSTree();
-            node2.data = 20;
-            p.AuxilaryHead(node2);
+            //BSTree node2 = new BSTree();
+            //node2.data = 20;
+            //p.AuxilaryHead(node2);
 
-            BSTree node3 = new BSTree();
-            node3.data = 8;
-            p.AuxilaryHead(node3);
+            //BSTree node3 = new BSTree();
+            //node3.data = 8;
+            //p.AuxilaryHead(node3);
 
-            BSTree node4 = new BSTree();
-            node4.data = 12;
-            p.AuxilaryHead(node4);
+            //BSTree node4 = new BSTree();
+            //node4.data = 12;
+            //p.AuxilaryHead(node4);
 
-            BSTree node5 = new BSTree();
-            node5.data = 25;
-            p.AuxilaryHead(node5);
+            //BSTree node5 = new BSTree();
+            //node5.data = 25;
+            //p.AuxilaryHead(node5);
 
-            BSTree node6 = new BSTree();
-            node6.data = 17;
-            p.AuxilaryHead(node6);
+            //BSTree node6 = new BSTree();
+            //node6.data = 17;
+            //p.AuxilaryHead(node6);
 
-            BSTree node7 = new BSTree();
-            node7.data = 6;
-            p.AuxilaryHead(node7);
+            //BSTree node7 = new BSTree();
+            //node7.data = 6;
+            //p.AuxilaryHead(node7);
 
 
-            BSTree node8 = new BSTree();
-            node8.data = 11;
-            p.AuxilaryHead(node8);
+            //BSTree node8 = new BSTree();
+            //node8.data = 11;
+            //p.AuxilaryHead(node8);
 
-            BSTree node9 = new BSTree();
-            node9.data = 16;
-            p.AuxilaryHead(node9);
+            //BSTree node9 = new BSTree();
+            //node9.data = 16;
+            //p.AuxilaryHead(node9);
 
-            BSTree node10 = new BSTree();
-            node10.data = 27;
-            p.AuxilaryHead(node10);
+            //BSTree node10 = new BSTree();
+            //node10.data = 27;
+            //p.AuxilaryHead(node10);
 
             #region
             //int diff = p.IsBalanced(node);
@@ -1070,18 +1110,18 @@ namespace GeneralProblems
 
             //18. Remove dupilcates in a given string
 
-            String [] Mystrings = new string []{"one", "two", "three", "one", "four", "two"};
-            p.RemoveDupilcates(Mystrings);
+            //String [] Mystrings = new string []{"one", "two", "three", "one", "four", "two"};
+            //p.RemoveDupilcates(Mystrings);
            
             //19.Longest common SubSequence in two strings
 
-            string str1 = "ABCDAF";
-            string str2 = "ACBCF";
-            int l1 = 0;
-            int l2 =0;
+            //string str1 = "ABCDAF";
+            //string str2 = "ACBCF";
+            //int l1 = 0;
+            //int l2 =0;
 
            // int max = p.lcsDynamic(str1.ToCharArray(), str2.ToCharArray(), l1, l2);
-            Console.ReadLine();
+            //Console.ReadLine();
 
             //20. The cost of a stock on each day is given in an array, find the max profit that you can make by buying and selling in those days.
             //For example, if the given array is {100, 180, 260, 310, 40, 535, 695}, the maximum profit can earned by buying on day 0, selling on day 3. 
@@ -1089,13 +1129,31 @@ namespace GeneralProblems
 
             int [] A = new int[] {100,180,260,310,40,535,695};
             // int[] A = new int[] { 48,31,61,38,51,70,10 };
-            p.StockBuySell(A);
+            //p.StockBuySell(A);
 
             //21. Stick Span problem 
             // Given a list of stock prices , we need to find span of a day (span = Number of consecutive days to prior day , when stick price is less than current day)
 
             int[] StockPrice = new int[] {100,65,70,110, 80,90, 120 };
-            p.StockSpan(StockPrice);
+            //p.StockSpan(StockPrice);
+
+            //22. Fidn the first recurring character in a given string
+            String str = "DBCABA";
+            //p.Find_First_Recurring_Character(str);
+
+            //23. Given an array of integers , represent it as a number and add 1 to the number and print the array
+            // [1,3,4] -> [1,3,5]
+            // [9,9,9] -> [1,0,0,0]
+            // [1,9,9] -> [2,0,0]
+            int[] MyArray = new int[] {1,2,3};
+            int [] result =  p.AddOneToGivenArray(MyArray);
+            Console.Write("[");
+            for (int i = 0; i < result.Length - 1; i++)
+            {
+                Console.Write(result[i] +",");
+            }
+            Console.Write(result[result.Length-1] + "]");
+            Console.ReadLine();
             
         }
 
