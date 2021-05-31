@@ -7,7 +7,7 @@ namespace Tries
     {
         
         public Dictionary<char, Node> children;
-        public Boolean endOfWord;
+        public bool endOfWord;
 
         //public Node()
         //{

@@ -9,7 +9,7 @@ namespace StacksLIFO
     class Program
     {
         Node Head;
-        Node Tail;
+        //Node Tail;
 
         //public void Add(Node n) // Add at head LIFO
         //{
@@ -157,7 +157,8 @@ namespace StacksLIFO
             }
             Head = Prev;
         }
-        // Two sorted Linked Lists with a new Linked List wity space complexity of O(1)
+               
+        // Two sorted Linked Lists with a new Linked List with space complexity of O(1)
         public Node MergedLinkedLists(Node n1, Node n11)
         {
 
@@ -180,6 +181,31 @@ namespace StacksLIFO
             }
             return Result;
         
+        }
+
+        public void ReverseLL(Node x)
+        {
+            Node current= x;
+            Node next = null;
+            Node previous = null;
+
+            while (current != null)
+            {
+                next = current.Next;
+                current.Next = previous;
+                previous = current;
+                current = next;
+            }
+            Head = previous;
+        }
+
+        public void PrintReverse(Node p)
+        {
+            if (p == null)
+                return;
+            PrintReverse(p.Next);
+            Console.Write(p.data + " ");
+
         }
 
         static void Main(string[] args)
@@ -249,26 +275,30 @@ namespace StacksLIFO
             p.Add(n4);
             p.Add(n5);
 
-           // p.Print();
+            p.Print();
+            p.PrintReverse(n1);
+            
+
+          
             //String s = "23 * 3 + 5 * 4 - 9";
             //p.EvaluateString(s);
 
-           // p.ReverseLinkedList(n1);
-           // p.Print();
+            // p.ReverseLinkedList(n1);
+            // p.Print();
 
-            Program p2 = new Program();
+            //Program p2 = new Program();
 
-            Node n11 = new Node();
-            n11.data = 16;
+            //Node n11 = new Node();
+            //n11.data = 16;
 
-            Node n12 = new Node();
-            n12.data = 21;
+            //Node n12 = new Node();
+            //n12.data = 21;
 
-            p2.Add(n11);
-            p2.Add(n12);
-            p2.Print();
+            //p2.Add(n11);
+            //p2.Add(n12);
+            //p2.Print();
             Console.ReadLine();
-            p.MergedLinkedLists(n1, n11);
+            //p.MergedLinkedLists(n1, n11);
 
 
 

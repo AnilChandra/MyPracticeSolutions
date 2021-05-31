@@ -885,7 +885,34 @@ namespace GeneralProblems
             }
                 return result;
         }
-
+        public int InsertionSort(int[] arr)
+        {
+            int lengthOfArray = arr.Length - 1;
+            int [] shifts = new int[lengthOfArray];
+            for (int i = 1; i <= lengthOfArray; i++)
+            {
+                int value = arr[i];
+                int hole = i;
+                int shift = 0;
+                while (hole > 0 && arr[hole-1] > value)
+                {
+                    arr[hole] = arr[hole - 1];
+                    hole = hole - 1;
+                    shift++;
+                }
+                arr[hole] = value;
+                shifts[i-1] = shift;
+            }
+            int totalShifts = 0;
+            for (int i=0; i < shifts.Length; i++ )
+            {
+                totalShifts = totalShifts + shifts[i];
+               
+            }
+            Console.Write(totalShifts);
+            Console.ReadLine();
+            return totalShifts;
+        }
         static void Main(string[] args)
         {
 
@@ -1146,15 +1173,20 @@ namespace GeneralProblems
             // [9,9,9] -> [1,0,0,0]
             // [1,9,9] -> [2,0,0]
             int[] MyArray = new int[] {1,2,3};
-            int [] result =  p.AddOneToGivenArray(MyArray);
-            Console.Write("[");
-            for (int i = 0; i < result.Length - 1; i++)
-            {
-                Console.Write(result[i] +",");
-            }
-            Console.Write(result[result.Length-1] + "]");
-            Console.ReadLine();
-            
+            //int [] result =  p.AddOneToGivenArray(MyArray);
+            //Console.Write("[");
+            //for (int i = 0; i < result.Length - 1; i++)
+            //{
+            //    Console.Write(result[i] +",");
+            //}
+            //Console.Write(result[result.Length-1] + "]");
+            //Console.ReadLine();
+
+            //24. calculate the number of shifts an Insertion Sort performs when sorting an array?
+            int[] arr = new int[] {2,1,3,1,2};
+            p.InsertionSort(arr);
+
+
         }
 
 
