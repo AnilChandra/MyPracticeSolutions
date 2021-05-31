@@ -114,36 +114,16 @@ namespace AlgorithmsMadeEasy
 
             return root.children.Count == 0;
         }
-
-       // public void Insert(string word)
-        //{
-        //    TrieNode current = root;
-        //    char[] arr = word.ToCharArray();
-
-        //    for (int i =0; i < word.Length; i++)
-        //    {
-        //        char ch = arr[i];
-        //        TrieNode node = new TrieNode();
-        //        if (!current.children.ContainsKey(ch))
-        //        {
-                    
-        //            current.children.Add(ch,node);
-        //        }
-        //        current = node;
-        //    }
-        //    current.endOfWord = true;
-        //}
         static void Main(string[] args)
         {
             Tries t = new Tries();
-            //t.Insert("anil");
             t.CreateRoot();
             t.Add("abccd".ToCharArray());
             t.Add("abgl".ToCharArray());
             t.Add("cdf".ToCharArray());
             t.Add("abcd".ToCharArray());
             t.Add("lmn".ToCharArray());
-            //bool findPrefix2 = t.FindPrefix("lo".ToCharArray());
+            bool findPrefix2 = t.FindPrefix("lo".ToCharArray());
         }
     }
 
